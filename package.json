@@ -1,0 +1,14 @@
+{
+  "name": "Shaddoll.github.io",
+  "version": "1.0.0",
+  "description": "blogs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shaddoll/Shaddoll.github.io.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-uglify": "^0.9.1"
+  }
+}
