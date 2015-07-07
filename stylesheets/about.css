@@ -1,0 +1,37 @@
+#photograph {
+    margin: 15px;
+    float: left;
+    height: 100%;
+}
+
+#intro {
+    float: left;
+    margin: 10px;
+}
+
+#intro ul{
+    list-style: none;
+}
+
+#intro ul li{
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+#intro ul li a{
+    color: #969696;
+    text-decoration: none;
+}
+
+#intro ul li a:hover{
+    color: blue;
+}
+
+#self-intro {
+    margin: 10px;
+}
+
+#self-intro p{
+    float: left;
+    font-family: Georgia, sans-serif;
+}

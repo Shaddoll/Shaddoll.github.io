@@ -1,0 +1,29 @@
+article {
+    border-bottom: solid thin;
+    margin: 15px;
+    padding: 0px 15px;
+}
+
+.blogs header h3{
+    text-align: left;
+}
+
+.blogs header h3 a {
+    text-decoration: none;
+}
+
+.blogs header h3 a:visited {
+    color: #969696;
+}
+.blogs footer {
+    font-size: 13px;
+}
+
+.date, .tag {
+    color: gray;
+}
+
+.tag {
+    float: right;
+    font-size: 15px;
+}
