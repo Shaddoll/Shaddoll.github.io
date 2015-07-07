@@ -2,11 +2,13 @@
     margin: 15px;
     float: left;
     height: 100%;
+    width: auto;
 }
 
 #intro {
     float: left;
     margin: 10px;
+    width: auto;
 }
 
 #intro ul{

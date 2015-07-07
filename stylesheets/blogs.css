@@ -8,10 +8,6 @@ article {
     text-align: left;
 }
 
-.blogs header h3 a {
-    text-decoration: none;
-}
-
 .blogs header h3 a:visited {
     color: #969696;
 }

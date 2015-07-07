@@ -9,6 +9,7 @@ body {
 
 a {
     color: #969696;
+    text-decoration: none;
 }
 
 a:visited {
@@ -47,16 +48,11 @@ nav ul li{
     background: transparent;
 }
 
-#nav-header a:visited{
-     color: #969696;
-}
-
 nav ul li a{
      display: block;
      height: 26px;
      padding: 26px;
      text-decoration: none;
-     color: #969696;
 }
 
 nav ul li a:hover{
@@ -64,26 +60,20 @@ nav ul li a:hover{
     background: #fff04a;
 }
 
-nav ul li a:visited{
-     color: #969696;
-}
-
 div {
     float: left;
+    width: 100%;
 }
 
 #container{
-    width: 100%;
     margin: 0 auto;
 }
 
 #header{
-    width: 100%;
     margin: 0 auto;
 }
 
 #main{
-    width: 100%;
     margin: 10px auto;
 }
 
@@ -97,6 +87,12 @@ div {
 #maincenter header h2 {
     text-align: center;
     font-family: fantasy;
+}
+
+#desktop {
+    text-align: center;
+    width: 100%;
+    margin: 10px;
 }
 
 #rightside{
@@ -115,4 +111,10 @@ div {
 .logo{
     width: 150px;
     height: 80px;
+}
+
+#deskimage {
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 100%;
 }
