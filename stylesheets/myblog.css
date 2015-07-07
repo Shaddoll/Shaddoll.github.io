@@ -109,8 +109,8 @@ div {
  }
 
 .logo{
-    width: 150px;
-    height: 80px;
+    max-width: 70%;
+    max-height: 70%;
 }
 
 #deskimage {
