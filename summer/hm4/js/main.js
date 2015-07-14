@@ -1,7 +1,9 @@
 //全局变量
 var cardNum = 20;
 var cards;
+var currentShowCard = 1;
 var currentCommentPage = 0;
+var locationX, locationY;
 
 function init() {
     $.ajax({
@@ -18,11 +20,14 @@ function init() {
 
 function show () {
     var bigcard = $('#big-card');
-    bigcard.css('display', 'block');
+    //bigcard.css('display', 'block');
+    bigcard.fadeIn(500);
     $('#big-card-img').append($(this).clone(true));
     var str = $(this).attr('src').substring(7);
     var comment = $('<p/>');
     var author = $('<h2/>');
+    var dis = $('<p/>');
+    var page = $('#pages');
     $.ajax({
         type: 'GET',
         url: 'https://raw.githubusercontent.com/Shaddoll/Shaddoll.github.io/master/cards.json',
@@ -30,21 +35,30 @@ function show () {
         success: function (data){
             for(var i = 0; i < data.length;++i) {
                 if (data[i].fileName === str) {
+                    var d = getDistance(locationX, locationY, data[i].location.x, data[i].location.y);
+                    dis.text("这张图片距离您" + d + "km.");
                     comment.text(data[i].comment[0].words);
-                    author.text(data[i].comment[0].name);
+                    //author.text(data[i].comment[0].name);
+                    author.html(data[i].comment[0].name + " <span class=\"date\">" + data[i].comment[0].date + "</span");
+                    page.text("第1页,共" + data[i].comment.length +"页");
                     currentCommentPage = 0;
+                    break;
                 }
             }}
     });
+    $('#big-card-img').append(dis);
     $('#comment-info').append(author);
+    $('#comment-info').append($('<hr/>'));
     $('#comment-info').append(comment);
+    $('#comment-info').append($('<hr/>'));
 }
 
 function hide () {
     var bigcard = $('#big-card');
     $('#big-card-img').empty();
     $('#comment-info').empty();
-    bigcard.css('display', 'none');
+    //bigcard.css('display', 'none');
+    bigcard.fadeOut(500);
 }
 
 function next (e) {
@@ -52,6 +66,7 @@ function next (e) {
     var str = $('#big-card-img img').attr('src').substring(7);
     var author = $('#comment-info h2');
     var comment = $('#comment-info p');
+    var page = $('#pages');
     $.ajax({
         type: 'GET',
         url: 'https://raw.githubusercontent.com/Shaddoll/Shaddoll.github.io/master/cards.json',
@@ -62,7 +77,9 @@ function next (e) {
                     if (currentCommentPage < data[i].comment.length - 1) {
                         ++currentCommentPage;
                         comment.text(data[i].comment[currentCommentPage].words);
-                        author.text(data[i].comment[currentCommentPage].name);
+                        //author.text(data[i].comment[currentCommentPage].name);
+                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span");
+                        page.text("第" + (currentCommentPage + 1) + "页,共" + data[i].comment.length +"页");
                         break;
                     }
                 }
@@ -76,6 +93,7 @@ function back (e) {
     var str = $('#big-card-img img').attr('src').substring(7);
     var author = $('#comment-info h2');
     var comment = $('#comment-info p');
+    var page = $('#pages');
     $.ajax({
         type: 'GET',
         url: 'https://raw.githubusercontent.com/Shaddoll/Shaddoll.github.io/master/cards.json',
@@ -86,14 +104,58 @@ function back (e) {
                     if (currentCommentPage > 0) {
                         --currentCommentPage;
                         comment.text(data[i].comment[currentCommentPage].words);
-                        author.text(data[i].comment[currentCommentPage].name);
+                        //author.text(data[i].comment[currentCommentPage].name);
+                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span");
+                        page.text("第" + (currentCommentPage + 1) + "页,共" + data[i].comment.length + "页");
                         break;
                     }
                 }
             }
         }
     });
+}
 
+function getLocation () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    }
+    else {
+        alert("Geolocation is nor supported by the borwser.");
+    }
+}
+
+function showPosition (position) {
+    locationY = position.coords.latitude;
+    locationX = position.coords.longitude;
+}
+
+function getDistance(locationX, locationY, x, y){
+    var x1 = Math.cos(locationX) * Math.cos(locationY);
+    var x2 = Math.cos(y) * Math.cos(x);
+    var y1 = Math.cos(locationY) * Math.sin(locationX);
+    var y2 = Math.cos(y) * Math.sin(x);
+    var z1 = Math.sin(locationY);
+    var z2 = Math.sin(y);
+    var a = Math.acos(x1*x2 + y1*y2 + z1*z2);
+    var d = a / 180 * Math.PI * 6371;
+    return d;
+}
+
+function showError (error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert('User denied the request for Geolocation.');
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert('Location information is unavailable.');
+            break;
+        case error.TIMEOUT:
+            alert('The request to get user location timed out.');
+            break;
+        case error.UNKNOWN_ERROR:
+            alert('An unknown error occurred.');
+            break;
+    }
 }
 
 window.onload = function () {
@@ -105,6 +167,7 @@ window.onload = function () {
     $(document).on({
         ajaxStop: function() {$('#header').css('display', 'none');}
     });
+    getLocation();
 };
 
 window.onscroll = function () {
