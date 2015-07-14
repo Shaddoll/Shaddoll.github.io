@@ -1,0 +1,132 @@
+#haeder {
+    display: none;
+    position: fixed;
+    margin: auto;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+}
+#header img {
+    margin: 0 auto;
+    display: block;
+}
+
+#main {
+
+}
+
+.cards-table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cards-list {
+    padding: 0;
+    float: left;
+    width: 23.75%;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+}
+
+.card-container {
+    position: relative;
+    padding: 3%;
+    display: block;
+}
+
+.card-container img {
+    max-width: 100%;
+    cursor: -webkit-zoom-in;
+    -webkit-transition: all 0.3s ease-in;
+}
+
+.card-container img:hover {
+    -webkit-transform: scale(1.2);
+    box-shadow: 15px 15px 20px rgba(50, 50, 50, 0.4);
+}
+
+#big-card {
+    overflow-y: scroll;
+    display: none;
+    position: fixed;
+    background: rgba(227,224,226,0.95);
+    min-height: 500px;
+    z-index: 1000;
+    margin: auto;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+}
+
+#big-card-center {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+#big-card-img {
+    display: block;
+    background: #fff;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    cursor: -webkit-zoom-out;
+}
+
+#big-card-img img {
+    margin: 0 auto;
+    display: block;
+}
+
+#big-card-comment {
+    cursor: auto;
+    display: block;
+    margin: 15px;
+    padding: 5px 15px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+#page-button {
+   text-align: center;
+   height: 20%;
+}
+
+#page-button a {
+}
+
+#page-button a img {
+     margin: auto;
+     width: 10%;
+     max-height: 100%;
+}
+
+#comment-info h2 {
+    padding: 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .cards-list {
+       width: 23.75%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .card-list {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cards-list {
+        width: 48.5%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cards-list {
+       width: 98%;
+    }
+}
