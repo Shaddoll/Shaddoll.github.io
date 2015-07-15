@@ -1,4 +1,22 @@
-#haeder {
+body {
+    margin: 0;
+}
+
+#heade {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    height: 160px;
+    background: url(../header.jpg) center top no-repeat;
+}
+
+#heade img {
+    margin: auto;
+    display: block;
+}
+
+#footer {
     display: none;
     position: fixed;
     margin: auto;
@@ -7,13 +25,14 @@
     right:0;
     bottom:0;
 }
-#header img {
+#footer img {
     margin: 0 auto;
     display: block;
 }
 
 #main {
-
+    background: url(../background4.jpg) center;
+    float: left;
 }
 
 .cards-table {
@@ -50,7 +69,7 @@
     overflow-y: scroll;
     display: none;
     position: fixed;
-    background: rgba(227,224,226,0.95);
+    background: rgba(227,224,226,0.7);
     min-height: 500px;
     z-index: 1000;
     margin: auto;
