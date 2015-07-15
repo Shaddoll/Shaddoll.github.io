@@ -20,7 +20,6 @@ function init() {
 
 function show () {
     var bigcard = $('#big-card');
-    //bigcard.css('display', 'block');
     bigcard.fadeIn(500);
     $('#big-card-img').append($(this).clone(true));
     var str = $(this).attr('src').substring(7);
@@ -46,7 +45,7 @@ function show () {
                 }
             }}
     });
-    $('#big-card-img').append(dis);
+    $('#card-dis').append(dis);
     $('#comment-info').append(author);
     $('#comment-info').append($('<hr/>'));
     $('#comment-info').append(comment);
@@ -56,8 +55,8 @@ function show () {
 function hide () {
     var bigcard = $('#big-card');
     $('#big-card-img').empty();
+    $('#card-dis').empty();
     $('#comment-info').empty();
-    //bigcard.css('display', 'none');
     bigcard.fadeOut(500);
 }
 

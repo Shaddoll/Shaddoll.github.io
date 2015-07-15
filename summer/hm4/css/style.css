@@ -33,6 +33,7 @@ body {
 #main {
     background: url(../background4.jpg) center;
     float: left;
+    width: 100%;
 }
 
 .cards-table {
@@ -85,10 +86,20 @@ body {
     width: 50%;
 }
 
-#big-card-img {
+#big-card-top {
     display: block;
     background: #fff;
-    padding: 15px;
+    margin: 15px;
+    border-radius: 6px;
+    cursor: -webkit-zoom-out;
+    text-align: center;
+}
+
+#big-card-img {
+    display: block;
+    background: url(../cardborder.jpg) center top no-repeat;
+    background-size: 100% 100%;
+    padding: 10% 7%;
     margin: 15px;
     border-radius: 6px;
     cursor: -webkit-zoom-out;
@@ -97,6 +108,7 @@ body {
 #big-card-img img {
     margin: 0 auto;
     display: block;
+    max-width: 100%;
 }
 
 #big-card-comment {
