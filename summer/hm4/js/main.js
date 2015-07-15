@@ -57,11 +57,10 @@ function show () {
 }
 //隐藏大图
 function hide () {
-    var bigcard = $('#big-card');
+    $('#big-card').fadeOut(500);
     $('#big-card-img').empty();
     $('#card-dis').empty();
     $('#comment-info').empty();
-    bigcard.fadeOut(500);
 }
 //查看下一页评论
 function next (e) {
