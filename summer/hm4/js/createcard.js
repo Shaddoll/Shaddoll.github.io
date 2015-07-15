@@ -3,11 +3,24 @@ function addcard(item, listNum) {//card 是从json中获取的卡片对象，lis
     card.attr('class', 'card-container');
     var img = $('<img/>');
     img.attr('alt', item.name);
-    img.attr('src', "images/loading.gif");
-    img.error(handleError.bind(img));
-    img.load(function () {$(this).attr('src', "images/" + item.fileName);});
+    var loading = $('<img/>');
+    loading.attr('src', 'images/' + item.fileName);
+    loading.load(function (){
+        if(this.complete) {
+            img.css('background', '');
+            img.css('min-height', '');
+            img.attr('src', this.src);
+        }
+    });
+    loading.error(function(){
+        img.css('background', '');
+        img.css('min-height', '');
+        img.attr('src', 'wrong.jpg');
+        $(this).unbind();
+    });
+    img.css('background', 'url(images/loading.gif) center top no-repeat');
+    img.css('min-height', '100%');
     card.append(img);
-    console.log('this 1111');
     $($('.cards-list')[listNum]).append(card);
 }
 
@@ -17,15 +30,24 @@ function preLoad(imgBuffer, item) {
         card.attr('class', 'card-container');
         var img = $('<img/>');
         img.attr('alt', item.name);
-        img.attr('src', "images/loading.gif");
-        img.error(handleError);
-        img.load(function () {$(this).attr('src', "images/" + item.fileName);});
+        var loading = $('<img/>');
+        loading.attr('src', 'images/' + item.fileName);
+        loading.load(function (){
+            if(this.complete) {
+                img.css('background', '');
+                img.css('min-height', '');
+                img.attr('src', this.src);
+                $(this).unbind();
+            }
+        });
+        loading.error(function () {
+            img.css('background', '');
+            img.css('min-height', '');
+            img.attr('src', 'wrong.jpg');
+        });
+        img.css('background', 'url(images/loading.gif) center top no-repeat');
+        img.css('min-height', '100%');
         card.append(img);
         imgBuffer.push(card);
     }
-}
-
-function handleError() {
-     $(this).attr('src', 'wrong.jpg');
-     $(this).unbind();
 }

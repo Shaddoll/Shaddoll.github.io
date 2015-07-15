@@ -57,10 +57,11 @@ function show () {
 }
 //隐藏大图
 function hide () {
-    $('#big-card').fadeOut(500);
+    var bigcard = $('#big-card');
     $('#big-card-img').empty();
     $('#card-dis').empty();
     $('#comment-info').empty();
+    bigcard.fadeOut(500);
 }
 //查看下一页评论
 function next (e) {
@@ -161,7 +162,7 @@ function showError (error) {
 window.onload = function () {
     init();
     $('.cards-table').on('click', 'img', show);
-    $('#big-card-img').on('click', hide);
+    $('#big-card-top').on('click', hide);
     $('#back').on('click', back);
     $('#next').on('click', next);
     $(document).on({
@@ -180,12 +181,12 @@ window.onscroll = function () {
             url: 'https://raw.githubusercontent.com/Shaddoll/Shaddoll.github.io/master/cards.json',
             dataType: 'json',
             success: function (data){
-                for (var i = 0; i < 8 && preloadNum + i < data.length && imgBuffer.length < 24; ++i) {
+                for (var i = 0; i < 8 && preloadNum + i < data.length && imgBuffer.length < 16; ++i) {
                     preLoad(imgBuffer, data[preloadNum + i]);
                 }
                 preloadNum += i;
         }});
-        timerID.push(setInterval(loadcard, 100));
+        timerID.push(setTimeout(loadcard, 200));
     }
 };
 
@@ -199,7 +200,7 @@ function loadcard() {
     }
     else {
         for (var i = 0; i < timerID.length; ++i) {
-            clearInterval(timerID[i]);
+            clearTimeout(timerID[i]);
         }
     }
 }
