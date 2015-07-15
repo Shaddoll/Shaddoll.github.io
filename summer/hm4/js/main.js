@@ -181,7 +181,7 @@ window.onscroll = function () {
             url: 'https://raw.githubusercontent.com/Shaddoll/Shaddoll.github.io/master/cards.json',
             dataType: 'json',
             success: function (data){
-                for (var i = 0; i < 8 && preloadNum + i < data.length && imgBuffer.length < 16; ++i) {
+                for (var i = 0; i < 8 && preloadNum + i < data.length && imgBuffer.length < 24; ++i) {
                     preLoad(imgBuffer, data[preloadNum + i]);
                 }
                 preloadNum += i;
