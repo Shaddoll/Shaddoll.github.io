@@ -186,6 +186,7 @@ window.onscroll = function () {
                 }
                 preloadNum += i;
         }});
+        loadcard();
         timerID.push(setTimeout(loadcard, 200));
     }
 };
