@@ -148,19 +148,19 @@ body {
 #pages {
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
     .cards-list {
        width: 23.75%;
     }
 }
 
-@media screen and (max-width: 900px) {
-    .card-list {
+@media screen and (max-width: 1200px) {
+    .cards-list {
         width: 32%;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .cards-list {
         width: 48.5%;
     }
