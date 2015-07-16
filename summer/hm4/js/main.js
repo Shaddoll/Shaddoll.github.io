@@ -27,7 +27,14 @@ function show () {
     var bigcard = $('#big-card');
     bigcard.fadeIn(500);
     $('#big-card-img').append($(this).clone(true));
-    var str = $(this).attr('src').substring(7);
+    //var str = $(this).attr('src').substring(7);
+    var str = $(this).attr('src');
+    for (var i = str.length; i >= 0; -- i) {
+        if (str[i] === '/') {
+            str = str.substring(i + 1);
+            break;
+        }
+    }
     var comment = $('<p/>');
     var author = $('<h2/>');
     var dis = $('<p/>');
@@ -42,7 +49,7 @@ function show () {
                     var d = getDistance(locationX, locationY, data[i].location.x, data[i].location.y);
                     dis.text("这张图片距离您" + d + "km.");
                     comment.text(data[i].comment[0].words);
-                    author.html(data[i].comment[0].name + " <span class=\"date\">" + data[i].comment[0].date + "</span");
+                    author.html(data[i].comment[0].name + " <span class=\"date\">" + data[i].comment[0].date + "</span>");
                     page.text("第1页,共" + data[i].comment.length +"页");
                     currentCommentPage = 0;
                     break;
@@ -66,7 +73,14 @@ function hide () {
 //查看下一页评论
 function next (e) {
     e.preventDefault();
-    var str = $('#big-card-img img').attr('src').substring(7);
+    //var str = $('#big-card-img img').attr('src').substring(7);
+    var str = $('#big-card-img img').attr('src');
+    for (var i = str.length; i >= 0; -- i) {
+        if (str[i] === '/') {
+            str = str.substring(i + 1);
+            break;
+        }
+    }
     var author = $('#comment-info h2');
     var comment = $('#comment-info p');
     var page = $('#pages');
@@ -80,7 +94,7 @@ function next (e) {
                     if (currentCommentPage < data[i].comment.length - 1) {
                         ++currentCommentPage;
                         comment.text(data[i].comment[currentCommentPage].words);
-                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span");
+                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span>");
                         page.text("第" + (currentCommentPage + 1) + "页,共" + data[i].comment.length +"页");
                         break;
                     }
@@ -92,7 +106,16 @@ function next (e) {
 //查看上一页评论
 function back (e) {
     e.preventDefault();
-    var str = $('#big-card-img img').attr('src').substring(7);
+    //var str = $('#big-card-img img').attr('src').substring(7);
+    var str = $('#big-card-img img').attr('src');
+    for (var i = str.length; i >= 0; -- i) {
+        if (str[i] === '/') {
+            str = str.substring(i + 1);
+            break;
+        }
+    }
+
+
     var author = $('#comment-info h2');
     var comment = $('#comment-info p');
     var page = $('#pages');
@@ -106,7 +129,7 @@ function back (e) {
                     if (currentCommentPage > 0) {
                         --currentCommentPage;
                         comment.text(data[i].comment[currentCommentPage].words);
-                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span");
+                        author.html(data[i].comment[currentCommentPage].name + " <span class=\"date\">" + data[i].comment[currentCommentPage].date + "</span>");
                         page.text("第" + (currentCommentPage + 1) + "页,共" + data[i].comment.length + "页");
                         break;
                     }
