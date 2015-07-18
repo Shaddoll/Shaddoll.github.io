@@ -81,7 +81,7 @@ function subscribeSendMessage() {//监听发送信息事件
 
 function subscribeRetrieveMessage() {//监听获取信息事件
     messageref[myRoom] = new Firebase('https://intense-fire-9688.firebaseio.com/messages/' + myRoom);
-    messageref[myRoom].on('child_added', function (snapshot) {
+    messageref[myRoom].limitToLast(20).on('child_added', function (snapshot) {
         var data = snapshot.val();
         var user = data.sender;
         var message = data.message.replace('\n', '<br/>');
