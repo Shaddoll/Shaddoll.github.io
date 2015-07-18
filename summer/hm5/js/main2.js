@@ -13,6 +13,10 @@ function login() {//登录函数
         alert("You must input a name!");
         return;
     }
+    else if (str.length > 16) {
+        alert("Your name is too long!");
+        return;
+    }
     userref.once("value", function (snapshot) {//获取所有在线用户裂变，在回调函数里判断登录是否成功
         var users = snapshot.val();
         var sameName = false;
