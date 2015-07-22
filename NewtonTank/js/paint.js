@@ -1,4 +1,4 @@
-function changeLife(playerid, life) {
+function changeLife(playerid, life) {//改变玩家的生命值，playerid为0，1
     if (typeof playerid === "number" && playerid == 0 || playerid == 1) {
         if (typeof life === "number" && life <= 100) {
             if (life < 0) {
@@ -9,7 +9,7 @@ function changeLife(playerid, life) {
     }
 }
 
-function changeStrength(strength) {
+function changeStrength(strength) {//改变能量条
     if (typeof strength === "number") {
         if (strength > 100) {
             strength = 100;
@@ -21,20 +21,20 @@ function changeStrength(strength) {
     }
 }
 
-function changePosition(position, leftOrRight, moveObject){
+function changePosition(position, leftOrRight, moveObject){//改变位置，position是left火right的距离，leftorright是left或right属性，moveobject是player1或player2的DOM对象
     if (typeof position === "number" && (leftOrRight === "left" || leftOrRight === "right")) {
         moveObject.css(leftOrRight, position + "px");
     }
 }
 
-function changeAngle(angle, moveObject) {
+function changeAngle(angle, moveObject) {//改变炮台角度
     if (typeof angle === "number") {
         $('.player' + (Turn + 1)).css('display', 'none');
         $('#player' + (Turn + 1) + currentAngle[Turn]).css('display', 'block');
     }
 }
 
-function show_wind(WindStrength, WindDirection) {
+function show_wind(WindStrength, WindDirection) {//改变风速显示
     if (WindDirection === "left") {
         $('#wind').css('background', 'url(images/windtoleft.png)');
     }
@@ -45,9 +45,9 @@ function show_wind(WindStrength, WindDirection) {
     $('#wind-strength').text(WindStrength);
 }
 
-function playBomb(x, y) {
+function playBomb(x, y) {//播放爆炸特效
     var img;
-    if (icebomb) {
+    if (icebomb) {//冰弹有自己的特效
         img = icebombGif;
     }
     else {
@@ -62,8 +62,8 @@ function playBomb(x, y) {
     } , '900');
 }
 
-function showBomb() {
-    var target;
+function showBomb() {//显示炮弹
+    var target;//要展示炮弹的种类
     if (hasDoubledPlayer1) {
         target = $('#bigbomb0');
     }
@@ -84,7 +84,7 @@ function showBomb() {
     target.attr('class', 'bullet-show');
 }
 
-function gameover() {
+function gameover() {//游戏结束画面显示
     $('#gameover-container').fadeIn(500);
     $('#backmusic')[0].pause();
     $('#dead')[0].play();
