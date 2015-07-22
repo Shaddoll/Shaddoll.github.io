@@ -125,7 +125,19 @@ function hit() {
         current_x = lx - totaltime * speed_x;
     }
     current_y = ly - (speed_y + current_speed_y) / 2 * totaltime;
-    var mybullet = document.getElementById('bullet');
+    var mybullet;
+    if (icebomb) {
+        mybullet = document.getElementById('icebomb' + Turn);
+    }
+    else if (Turn == 0 && hasDoubledPlayer1 == true) {
+        mybullet = document.getElementById('bigbomb0');
+    }
+    else if (Turn == 1 && hasDoubledPlayer2 == true) {
+        mybullet = document.getElementById('bigbomb1');
+    }
+    else {
+        mybullet = document.getElementById('bomb' + Turn);
+    }
     mybullet.style.left = current_x + "px";
     mybullet.style.top = current_y + "px";
     var temp = [17, 0];
@@ -149,7 +161,6 @@ function hit() {
             if (!icebomb) {
                 PlayerCanMove[1 - Turn] = true;
             }
-            //PlayerCanMove[1 - Turn] = true;
             PlayerCanMove[Turn] = false;
             if(Turn == 0 && hasDoubledPlayer1 == true)
             {

@@ -45,18 +45,3 @@ $('#help-button').click(backtostart);
 
 var icebombGif = $('<img src=\'images/icebomb.gif\'/>');
 var bombGif = $('<img src=\'images/bomb.gif\'/>');
-
-var tankAngle = [[{30: $('<span class=\'player1\' style=\'background:url(images/tank030.png)\'/>'),
-                35: $('<span class=\'player1\' style=\'background:url(images/tank035.png)\'/>'),
-                40: $('<span class=\'player1\' style=\'background:url(images/tank040.png)\'/>'),
-                45: $('<span class=\'player1\' style=\'background:url(images/tank045.png)\'/>'),
-                50: $('<span class=\'player1\' style=\'background:url(images/tank050.png)\'/>'),
-                55: $('<span class=\'player1\' style=\'background:url(images/tank055.png)\'/>'),
-                60: $('<span class=\'player1\' style=\'background:url(images/tank060.png)\'/>')}],
-                [{30: $('<span class=\'player2\' style=\'background:url(images/tank130.png)\'/>'),
-                35: $('<span class=\'player2\' style=\'background:url(images/tank135.png)\'/>'),
-                40: $('<span class=\'player2\' style=\'background:url(images/tank140.png)\'/>'),
-                45: $('<span class=\'player2\' style=\'background:url(images/tank145.png)\'/>'),
-                50: $('<span class=\'player2\' style=\'background:url(images/tank150.png)\'/>'),
-                55: $('<span class=\'player2\' style=\'background:url(images/tank155.png)\'/>'),
-                60: $('<span class=\'player2\' style=\'background:url(images/tank160.png)\'/>')}]];

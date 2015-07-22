@@ -29,8 +29,6 @@ function changePosition(position, leftOrRight, moveObject){
 
 function changeAngle(angle, moveObject) {
     if (typeof angle === "number") {
-        //$('#player' + (Turn + 1)).css('background', 'url(tank/tank' + Turn + angle + '.png)');
-        //$('#player' + (Turn + 1)).css('background-size', '100% 100%');
         $('.player' + (Turn + 1)).css('display', 'none');
         $('#player' + (Turn + 1) + currentAngle[Turn]).css('display', 'block');
     }
@@ -64,28 +62,26 @@ function playBomb(x, y) {
     } , '900');
 }
 
-function showBomb(x, y) {
+function showBomb() {
+    var target;
     if (hasDoubledPlayer1) {
-        $('#bullet').css('background', 'url(images/bigbomb0.png)');
+        target = $('#bigbomb0');
     }
     else if (hasDoubledPlayer2) {
-        $('#bullet').css('background', 'url(images/bigbomb1.png)');
+        target = $('#bigbomb1');
     }
     else if (icebomb) {
         if (Turn == 0) {
-            $('#bullet').css('background', 'url(images/icebomb0.png)');
+            target = $('#icebomb0');
         }
         else if (Turn == 1) {
-            $('#bullet').css('background', 'url(images/icebomb1.png)');
+            target = $('#icebomb1');
         }
     }
     else {
-        $('#bullet').css('background', 'url(images/bomb' + Turn + '.png)');
+        target = $('#bomb' + Turn);
     }
-    $('#bullet').css('background-size', '100% 100%');
-    $('#bullet').css('left', x + 'px');
-    $('#bullet').css('top', y + 'px');
-    $('#bullet').attr('class', 'bullet-show');
+    target.attr('class', 'bullet-show');
 }
 
 function gameover() {
