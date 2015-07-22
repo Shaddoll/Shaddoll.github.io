@@ -208,8 +208,9 @@
 	height:7%;
 	width: 100%;
 }
-#player1
+.player1
 {
+    display: none;
 	position: absolute;
 	bottom:0%;
 	left:0%;
@@ -218,8 +219,9 @@
 	background: url('tank/tank045.png');
 	background-size: 100% 100%;
 }
-#player2
+.player2
 {
+    display: none;
 	position: absolute;
 	bottom:0%;
 	right:0%;

@@ -29,17 +29,19 @@ function changePosition(position, leftOrRight, moveObject){
 
 function changeAngle(angle, moveObject) {
     if (typeof angle === "number") {
-        $('#player' + (Turn + 1)).css('background', 'url(tank/tank' + Turn + angle + '.png)');
-        $('#player' + (Turn + 1)).css('background-size', '100% 100%');
+        //$('#player' + (Turn + 1)).css('background', 'url(tank/tank' + Turn + angle + '.png)');
+        //$('#player' + (Turn + 1)).css('background-size', '100% 100%');
+        $('.player' + (Turn + 1)).css('display', 'none');
+        $('#player' + (Turn + 1) + currentAngle[Turn]).css('display', 'block');
     }
 }
 
 function show_wind(WindStrength, WindDirection) {
     if (WindDirection === "left") {
-        $('#wind').css('background', 'url(windtoleft.png)');
+        $('#wind').css('background', 'url(images/windtoleft.png)');
     }
     else {
-        $('#wind').css('background', 'url(windtoright.png)');
+        $('#wind').css('background', 'url(images/windtoright.png)');
     }
     $('#wind').css('background-size', '100% 100%');
     $('#wind-strength').text(WindStrength);

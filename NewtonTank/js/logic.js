@@ -10,7 +10,7 @@ function randWind() {
 }
 
 function getMoveObject() {
-    moveObject = $('#player' + (Turn + 1));
+    moveObject = $('.player' + (Turn + 1));
     currentPos = parseInt(moveObject.css(leftOrRight[Turn]));
 }
 
@@ -85,18 +85,18 @@ function subscribeKeyDown() {
 function shoot() {
     totaltime = 0;
     gravity = 1;
-    el = document.getElementById('player' + (2 - Turn));
+    el = document.getElementById('player' + (2 - Turn) + currentAngle[1 - Turn]);
     for (lx_right=0, lx_top=0; el != null; lx_right += el.offsetLeft, lx_top += el.offsetTop, el = el.offsetParent){;}
     lx_left = lx_right;
-    lx_right+=document.getElementById('player' + (2 - Turn)).offsetWidth;
-    lx_bottom = lx_top + document.getElementById('player' + (2 - Turn)).offsetHeight;
+    lx_right+=document.getElementById('player' + (2 - Turn) + currentAngle[1 - Turn]).offsetWidth;
+    lx_bottom = lx_top + document.getElementById('player' + (2 - Turn) + currentAngle[1 - Turn]).offsetHeight;
     GetPercentageOfBar = currentStrength;
     currentStrength = 0;
     changeStrength(currentStrength);
-    el = document.getElementById('player' + (Turn + 1));
+    el = document.getElementById('player' + (Turn + 1) + currentAngle[Turn]);
     for (lx=0, ly=0; el != null; lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent){;}
     if (Turn == 0) {
-        lx += document.getElementById('player1').offsetWidth;
+        lx += document.getElementById('player1' + currentAngle[0]).offsetWidth;
     }
     else {
         lx -= 17;
