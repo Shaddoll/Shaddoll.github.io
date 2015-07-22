@@ -73,10 +73,10 @@ function getMoveObject() {
 function playBomb(x, y) {
     var img = $('<img/>');
     if (icebomb) {
-        img.attr('src', 'icebomb.gif');
+        img.attr('src', 'images/icebomb.gif');
     }
     else {
-        img.attr('src', 'bomb.gif');
+        img.attr('src', 'images/bomb.gif');
     }
     img.css('position', 'absolute');
     img.css('left', x + 'px');
@@ -91,7 +91,7 @@ function start() {
     PlayerLife[0] = PlayerLife[1] = 100;
     Turn = 0;
     $('.start').fadeOut(500);
-    $('#wincontainer').css('display', 'table');
+    $('#win-container').css('display', 'table');
     $('#backmusic')[0].play();
     randWind();
     getMoveObject();
@@ -460,21 +460,21 @@ window.onload = function () {
 
 function showBomb(x, y) {
     if (hasDoubledPlayer1) {
-        $('#bullet').css('background', 'url(bigbomb0.png)');
+        $('#bullet').css('background', 'url(images/bigbomb0.png)');
     }
     else if (hasDoubledPlayer2) {
-        $('#bullet').css('background', 'url(bigbomb1.png)');
+        $('#bullet').css('background', 'url(images/bigbomb1.png)');
     }
     else if (icebomb) {
         if (Turn == 0) {
-            $('#bullet').css('background', 'url(icebomb0.png)');
+            $('#bullet').css('background', 'url(images/icebomb0.png)');
         }
         else if (Turn == 1) {
-            $('#bullet').css('background', 'url(icebomb1.png)');
+            $('#bullet').css('background', 'url(images/icebomb1.png)');
         }
     }
     else {
-        $('#bullet').css('background', 'url(bomb' + Turn + '.png)');
+        $('#bullet').css('background', 'url(images/bomb' + Turn + '.png)');
     }
     $('#bullet').css('background-size', '100% 100%');
     $('#bullet').css('left', x + 'px');

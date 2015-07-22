@@ -3,7 +3,10 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="stylesheet.css">
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="js/main3.js"></script>
+        <script type="text/javascript" src="js/logic.js"></script>
+        <script type="text/javascript" src="js/paint.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
+
 		<meta charset = "utf-8">
 		<title>Game</title>
 	</head>
@@ -11,7 +14,7 @@
         
         <section class="start">
             <div id="logo-container">
-                <img id="logo" src="logo.png"/>
+                <img id="logo" src="images/logo.png"/>
             </div>
             <div id="menu-container">
                 <div class="menu-list" id="start">Start</div>
@@ -39,9 +42,9 @@
                         <p>S: 减小炮筒仰角</p>
                         <p>D: 向右移动</p>
                         <p>Enter: 按住不放增加炮弹能量</p>
-                        <p><img src="skill00.png"/>: 一回合发两枚炮弹</p>
-                        <p><img src="skill20.png"/>: 使敌人一回合不能左右移动</p>
-                        <p><img src="skill10.png"/>: 炮弹双倍威力</p>
+                        <p><img src="images/skill00.png"/>: 一回合发两枚炮弹</p>
+                        <p><img src="images/skill20.png"/>: 使敌人一回合不能左右移动</p>
+                        <p><img src="images/skill10.png"/>: 炮弹双倍威力</p>
                     </div>
                     <div id="help-button">
                         Return
@@ -87,32 +90,32 @@
 			<div id = "strength-bar-position">
 				<span class = "dual-player1" id = "dual-player1" onclick="dualedplayer1()"> 
 					<span id = "dual-text">
-                        <img src="skill00.png"/>
+                        <img src="images/skill00.png"/>
 					</span>
 				</span>
 				<span class = "double-player1" id = "double-player1" onclick="doubleplayer1()"> 
 					<span id = "double-text">
-					    <img src="skill10.png"/>
+					    <img src="images/skill10.png"/>
                     </span>
                 </span>
                 <span class = "ice-player1" id = "ice-player1" onclick="iceplayer1()">
                     <span id="ice-text">
-                        <img src="skill20.png"/>
+                        <img src="images/skill20.png"/>
                     </span>
                 </span>
 				<span class = "dual-player2" id = "dual-player2" onclick="dualedplayer2()"> 
 					<span id = "dual-text">
-					    <img src="skill01.png"/>
+					    <img src="images/skill01.png"/>
                     </span>
 				</span>
 				<span class = "double-player2" id = "double-player2" onclick="doubleplayer2()"> 
 					<span id = "double-text">
-                        <img src="skill11.png"/>
+                        <img src="images/skill11.png"/>
 					</span>
 				</span>
                 <span class = "ice-player2" id = "ice-player2" onclick="iceplayer2()">
                     <span id="ice-text">
-                        <img src="skill21.png"/>
+                        <img src="images/skill21.png"/>
                     </span>
                 </span>
 				<span id="enter-container">
@@ -163,6 +166,6 @@
             <audio id="dead" src="music/dead.mp3" preload="auto"></audio>
             <audio id="ice" src="music/ice.wav" preload="auto"></audio>
         </section>
-
+        <script text="type/javascript" src="js/init.js"></script>
 	</body>
 </html>

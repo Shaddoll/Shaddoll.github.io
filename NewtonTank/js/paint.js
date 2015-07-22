@@ -1,0 +1,96 @@
+function changeLife(playerid, life) {
+    if (typeof playerid === "number" && playerid == 0 || playerid == 1) {
+        if (typeof life === "number" && life <= 100) {
+            if (life < 0) {
+                life = 0;
+            }
+            $('#life-player' + (playerid + 1)).css('width', life + '%');
+        }
+    }
+}
+
+function changeStrength(strength) {
+    if (typeof strength === "number") {
+        if (strength > 100) {
+            strength = 100;
+        }
+        else if (strength < 0) {
+            strength = 0;
+        }
+        $('#current-strength').css('width', strength + '%');
+    }
+}
+
+function changePosition(position, leftOrRight, moveObject){
+    if (typeof position === "number" && (leftOrRight === "left" || leftOrRight === "right")) {
+        moveObject.css(leftOrRight, position + "px");
+    }
+}
+
+function changeAngle(angle, moveObject) {
+    if (typeof angle === "number") {
+        $('#player' + (Turn + 1)).css('background', 'url(tank/tank' + Turn + angle + '.png)');
+        $('#player' + (Turn + 1)).css('background-size', '100% 100%');
+    }
+}
+
+function show_wind(WindStrength, WindDirection) {
+    if (WindDirection === "left") {
+        $('#wind').css('background', 'url(windtoleft.png)');
+    }
+    else {
+        $('#wind').css('background', 'url(windtoright.png)');
+    }
+    $('#wind').css('background-size', '100% 100%');
+    $('#wind-strength').text(WindStrength);
+}
+
+function playBomb(x, y) {
+    var img;
+    if (icebomb) {
+        img = icebombGif;
+    }
+    else {
+        img = bombGif;
+    }
+    img.css('position', 'absolute');
+    img.css('left', x + 'px');
+    img.css('top', y + 'px');
+    $('body').append(img);
+    setTimeout(function () {
+        img.remove();
+    } , '900');
+}
+
+function showBomb(x, y) {
+    if (hasDoubledPlayer1) {
+        $('#bullet').css('background', 'url(images/bigbomb0.png)');
+    }
+    else if (hasDoubledPlayer2) {
+        $('#bullet').css('background', 'url(images/bigbomb1.png)');
+    }
+    else if (icebomb) {
+        if (Turn == 0) {
+            $('#bullet').css('background', 'url(images/icebomb0.png)');
+        }
+        else if (Turn == 1) {
+            $('#bullet').css('background', 'url(images/icebomb1.png)');
+        }
+    }
+    else {
+        $('#bullet').css('background', 'url(images/bomb' + Turn + '.png)');
+    }
+    $('#bullet').css('background-size', '100% 100%');
+    $('#bullet').css('left', x + 'px');
+    $('#bullet').css('top', y + 'px');
+    $('#bullet').attr('class', 'bullet-show');
+}
+
+function gameover() {
+    $('#gameover-container').fadeIn(500);
+    $('#backmusic')[0].pause();
+    $('#dead')[0].play();
+    $("#win-container").attr('class', 'win-position-show');
+    document.getElementById("win-text").innerText = "Player" + (Turn + 1) + "Wins";
+}
+

@@ -1,6 +1,6 @@
 .Blue-Background
 {
-	background:url('back2.jpg');
+	background:url('images/back2.jpg');
 	z-index:1;
 }
 #header-position
@@ -78,7 +78,7 @@
     top:0%;
 	width:10%;
 	height:50%;
-	background:url('windtoright.png');
+	background:url('images/windtoright.png');
 	background-size: 100% 100%;
 	text-align: center;
 }
@@ -186,7 +186,7 @@
 	height:4%;
     border-right: solid 2px;
     border-top-right-radius: 9px;
-    background: url(green.png);
+    background: url(images/green.png);
 }
 #second-island
 {
@@ -198,7 +198,7 @@
 	height:4%;
     border-left: solid 2px;
     border-top-left-radius: 9px;
-	background: url(green.png);
+	background: url(images/green.png);
 }
 #vechicle-space
 {
@@ -303,7 +303,7 @@
 	width:17px;
 	z-index:999;
 	height: 17px;
-	background: url(bullet.png);
+	background: url(images/bomb0.png);
     background-size: 100% 100%;
 }
 .bullet-hide
@@ -557,7 +557,7 @@
     width: 40%;
     border: solid 2px black;
     border-radius: 10px;
-    background: url(help.jpg) center top no-repeat;
+    background: url(images/help.jpg) center top no-repeat;
     background-size: 100% 100%;
     color: rgb(84,0,7);
     font-size: 20px;

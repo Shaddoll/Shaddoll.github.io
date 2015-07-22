@@ -1,52 +1,5 @@
-function changeLife(playerid, life) {
-    if (typeof playerid === "number" && playerid == 0 || playerid == 1) {
-        if (typeof life === "number" && life <= 100) {
-            if (life < 0) {
-                life = 0;
-            }
-            $('#life-player' + (playerid + 1)).css('width', life + '%');
-        }
-    }
-}
-
-function changeStrength(strength) {
-    if (typeof strength === "number") {
-        if (strength > 100) {
-            strength = 100;
-        }
-        else if (strength < 0) {
-            strength = 0;
-        }
-        $('#current-strength').css('width', strength + '%');
-    }
-}
-
-function changePosition(position, leftOrRight, moveObject){
-    if (typeof position === "number" && (leftOrRight === "left" || leftOrRight === "right")) {
-        moveObject.css(leftOrRight, position + "px");
-    }
-}
-
-function changeAngle(angle, moveObject) {
-    if (typeof angle === "number") {
-        $('#player' + (Turn + 1)).css('background', 'url(tank/tank' + Turn + angle + '.png)');
-        $('#player' + (Turn + 1)).css('background-size', '100% 100%');
-    }
-}
-
-function show_wind(WindStrength, WindDirection) {
-    if (WindDirection === "left") {
-        $('#wind').css('background', 'url(windtoleft.jpg)');
-    }
-    else {
-        $('#wind').css('background', 'url(windtoright.jpg)');
-    }
-    $('#wind').css('background-size', '100% 100%');
-    $('#wind-strength').text(WindStrength);
-}
-
 function randWind() {
-    if(Math.random()<0.5){
+    if(Math.random() < 0.5){
         WindDirection = "left";
     }
     else {
@@ -56,62 +9,9 @@ function randWind() {
     show_wind(WindStrength, WindDirection);
 }
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
-
 function getMoveObject() {
     moveObject = $('#player' + (Turn + 1));
     currentPos = parseInt(moveObject.css(leftOrRight[Turn]));
-}
-
-function playBomb(x, y) {
-    var img = $('<img/>');
-    img.attr('src', 'bomb.gif');
-    img.css('position', 'absolute');
-    img.css('left', x + 'px');
-    img.css('top', y + 'px');
-    $('body').append(img);
-    setTimeout(function () {
-        img.remove();
-    } , '900');
-}
-
-function start() {
-    PlayerLife[0] = PlayerLife[1] = 100;
-    Turn = 0;
-    $('.start').fadeOut(500);
-    $('#backmusic')[0].play();
-    randWind();
-    getMoveObject();
-    subscribeKeyDown();
-    subscribeKeyUp();
-}
-
-function restart() {//还没写好
-    window.location.reload();
-}
-
-function help() {
-
-}
-
-function quit() {
-    alert("欢迎下次再来玩本游戏!");
-    window.close();
-}
-
-function gameover() {
-    $('#gameover-container').fadeIn(500);
-    $('#backmusic')[0].pause();
-    $('#dead')[0].play();
-    $("#win-container").attr('class', 'win-position-show');
-    document.getElementById("win-text").innerText = "Player" + (Turn + 1) + "Wins";
 }
 
 function subscribeKeyDown() {
@@ -182,7 +82,6 @@ function subscribeKeyDown() {
     });
 }
 
-
 function shoot() {
     totaltime = 0;
     gravity = 1;
@@ -202,10 +101,6 @@ function shoot() {
     else {
         lx -= 17;
     }
-    //var mybullet = document.getElementById('bullet');
-    //mybullet.setAttribute('class','bullet-show');
-    //mybullet.style.left = lx + "px";
-    //mybullet.style.top = ly + "px";
     showBomb();
     speed_x = GetPercentageOfBar / 100 * Math.cos(currentAngle[Turn] * Math.PI / 180) * 1.3;   // the X speed
     speed_y = GetPercentageOfBar / 100 * Math.sin(currentAngle[Turn] * Math.PI / 180);
@@ -251,36 +146,46 @@ function hit() {
             gameover();
         }
         else {//对面未死亡
-            PlayerCanMove[1 - Turn] = true;
+            if (!icebomb) {
+                PlayerCanMove[1 - Turn] = true;
+            }
+            //PlayerCanMove[1 - Turn] = true;
             PlayerCanMove[Turn] = false;
-            if(Turn==0&&hasDoubledPlayer1==true)
+            if(Turn == 0 && hasDoubledPlayer1 == true)
             {
                 changeLife(1 - Turn, PlayerLife[1 - Turn] - 50);
-                PlayerLife[1-Turn]-=50;
+                PlayerLife[1-Turn] -= 50;
             }
-            if(Turn==0&&hasDoubledPlayer1==false)
+            if(Turn == 0 && hasDoubledPlayer1 == false)
             {
                 changeLife(1 - Turn, PlayerLife[1 - Turn] - 25);
-                PlayerLife[1-Turn]-=25;
+                PlayerLife[1 - Turn] -= 25;
             }
-            if(Turn==1&&hasDoubledPlayer2==true)
+            if(Turn == 1 && hasDoubledPlayer2 == true)
             {
                 changeLife(1 - Turn, PlayerLife[1 - Turn] - 50);
-                PlayerLife[1-Turn]-=50;
+                PlayerLife[1 - Turn] -= 50;
             }
-            if(Turn==1&&hasDoubledPlayer2==false)
+            if(Turn == 1 && hasDoubledPlayer2 == false)
             {
                 changeLife(1 - Turn, PlayerLife[1 - Turn] - 25);
-                PlayerLife[1-Turn]-=25;
+                PlayerLife[1 - Turn] -= 25;
             }
-            if(Turn==0) hasDoubledPlayer1 = false;
-            else hasDoubledPlayer2 = false;
-            if((Turn==0&&Dualedplayer1!=1)||(Turn==1&&Dualedplayer2!=1))
-            Turn = 1 - Turn;
-            if(Dualedplayer2!=0)
+            if(Turn == 0) {
+                hasDoubledPlayer1 = false;
+            }
+            else {
+                hasDoubledPlayer2 = false;
+            }
+            if((Turn == 0 && Dualedplayer1 != 1) || (Turn == 1 && Dualedplayer2 != 1)) {
+                Turn = 1 - Turn;
+            }
+            if(Dualedplayer2 != 0) {
                 Dualedplayer2++;
-            if(Dualedplayer1!=0)
+            }
+            if(Dualedplayer1 != 0) {
                 Dualedplayer1++;
+            }
             getMoveObject();
             $("#win-container").attr('class', 'win-position-show');
             document.getElementById("win-text").innerText = "Player" + (Turn + 1) + "'s Turn";
@@ -288,18 +193,21 @@ function hit() {
             enterlock = false;
         }
         mybullet.setAttribute('class', 'bullet-hide');
+        icebomb = false;
     }
     else if((current_y / screen.availHeight > 0.87) || (current_x > screen.width) || current_x < 0) {//未打中目标
         randWind();
-        $('#explosion')[0].play();
         PlayerCanMove[1 - Turn] = true;
         PlayerCanMove[Turn] = false;
-        if((Turn==0&&Dualedplayer1!=1)||(Turn==1&&Dualedplayer2!=1))
+        if((Turn == 0 && Dualedplayer1 != 1) || (Turn == 1 && Dualedplayer2 != 1)) {
             Turn = 1 - Turn;
-        if(Dualedplayer2!=0)
+        }
+        if(Dualedplayer2 != 0) {
             Dualedplayer2++;
-        if(Dualedplayer1!=0)
+        }
+        if(Dualedplayer1 != 0) {
             Dualedplayer1++;
+        }
         getMoveObject();
         mybullet.setAttribute('class', 'bullet-hide');
         $("#win-container").attr('class', 'win-position-show');
@@ -307,6 +215,7 @@ function hit() {
         hasDoubledPlayer2 = hasDoubledPlayer1 = false;
         clearInterval(bombtimer.shift());
         enterlock = false;
+        icebomb = false;
     }
 }
 
@@ -341,103 +250,51 @@ function subscribeKeyUp() {
         }
     });
 }
-function doubleplayer1()
-{
-    if(Turn!=0)return;
-    if(Dualedplayer1==1) return;
-    if(Dualedplayer1==2) return;
-    if(hasDoubledPlayer1==true)
+
+function doubleplayer1() {
+    if(Turn != 0 || Dualedplayer1 == 1 || Dualedplayer1 == 2 || hasDoubledPlayer1 == true) {
         return;
+    }
     hasDoubledPlayer1 = true;
     document.getElementById('double-player1').setAttribute('class','double-player1-hide');
-    return;
 }
-function doubleplayer2()
-{
-    if(Turn!=1) return;
-    if(Dualedplayer2==1) return;
-    if(Dualedplayer2==2) return;
-    if(hasDoubledPlayer2==true)
+
+function doubleplayer2() {
+    if(Turn != 1 || Dualedplayer2 == 1 || Dualedplayer2 == 2 || hasDoubledPlayer2 == true) {
         return;
+    }
     hasDoubledPlayer2 = true;
     document.getElementById('double-player2').setAttribute('class','double-player2-hide');
-    return;
 }
 
-function dualedplayer1()
-{
-    if(hasDoubledPlayer1==true) return;
-    if(Turn!=0)return;
+function dualedplayer1() {
+    if(Turn != 0 || hasDoubledPlayer1 == true) {
+        return;
+    }
     Dualedplayer1 = 1;
     document.getElementById('dual-player1').setAttribute('class','dual-player1-hide');
-    return;
 }
-function dualedplayer2()
-{
-    if(Turn!=1)return;
-    if(hasDoubledPlayer2==true) return;
+function dualedplayer2() {
+    if(Turn != 1 || hasDoubledPlayer2 == true) {
+        return;
+    }
     Dualedplayer2 = 1;
     document.getElementById('dual-player2').setAttribute('class','dual-player2-hide');
-    return;
 }
-var Turn = -1;
-var GameEnds = false;
-var PlayerWins = [false, false];
-var WindStrength = 100;
-var WindDirection = "left";//Or "right";
-var PlayerLife = [100, 100];
-var PlayerCanMove = [true, false];
-var Dualedplayer1 = 0;
-var Dualedplayer2 = 0;
-var boolIncrease = true;//能量条是增长还是下降
-var currentStrength = 0;//当前能量条的能量
-var moveObject;//要移动的jquery对象
-var currentPos;//对象当前的位置，以像素为单位
-var currentAngle = [45, 45];//对象当前炮筒的仰角
-var leftOrRight = ["left", "right"];//对象是靠左还是靠右的，对应css的left或right属性
-var strengthtimer = [];
-var lefttimer = [];
-var righttimer = [];
-var uptimer = [];
-var downtimer = [];
-var bombtimer = [];
-var hasDoubledPlayer1 = false;
-var hasDoubledPlayer2 = false;
-var lx = 0;
-var totaltime = 0;
-var ly = 0;
-var gravity = 1;
-var GetPercentageOfBar;
-var lx_right;
-var lx_left;
-var lx_top;
-var lx_bottom;
-var speed_x;
-var speed_y;
-var enterlock = false;
 
-
-window.onload = function () {
-    $('#start').click(start);
-    $('#restart').click(restart);
-    $('#help').click(help);
-    $('#help2').click(help);
-    $('#quit').click(quit);
-    $('#quit2').click(quit);
-};
-
-function showBomb(x, y) {
-    if (hasDoubledPlayer1) {
-        $('#bullet').css('background', 'url(bigbomb0.png)');
+function iceplayer1() {
+    if (Turn != 0 || hasDoubledPlayer1 == true || Dualedplayer1 == 1 || Dualedplayer1 == 2) {
+        return;
     }
-    else if (hasDoubledPlayer2) {
-        $('#bullet').css('background', 'url(bigbomb1.png)');
-    }
-    else {
-        $('#bullet').css('background', 'url(bomb' + Turn + '.png)');
-    }
-    $('#bullet').css('background-size', '100% 100%');
-    $('#bullet').css('left', x + 'px');
-    $('#bullet').css('top', y + 'px');
-    $('#bullet').attr('class', 'bullet-show');
+    icebomb = true;
+    $('#ice-player1').attr('class', 'ice-player1-hide');
 }
+
+function iceplayer2() {
+    if (Turn != 1 || hasDoubledPlayer2 == true || Dualedplayer2 == 1 || Dualedplayer2 == 2) {
+        return;
+    }
+    icebomb = true;
+    $('#ice-player2').attr('class', 'ice-player2-hide');
+}
+
