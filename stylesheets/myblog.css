@@ -1,0 +1,120 @@
+body {
+    width: 100%;
+    float: left;
+    margin: 0px;
+    background: url(../images/back.jpg);
+    color: #969696;
+
+}
+
+a {
+    color: #969696;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #969696;
+}
+
+nav{
+    float: left;
+}
+
+ul {
+    list-style: none;
+}
+
+nav ul{
+    float: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav ul li{
+    float: left;
+    font: normal normal bold 20px/1.5em cursive, "Times New Roman";
+    border-left: outset thin;
+    margin: 0px;
+}
+
+#nav-header {
+    font: normal small-caps bold 30px/0.9em cursive, "Times New Roman";
+    border-left: none;
+    display: block;
+    width: auto;
+}
+
+#nav-header a:hover{
+    background: transparent;
+}
+
+nav ul li a{
+     display: block;
+     height: 26px;
+     padding: 26px;
+     text-decoration: none;
+}
+
+nav ul li a:hover{
+    color: #969696;
+    background: #fff04a;
+}
+
+div {
+    float: left;
+    width: 100%;
+}
+
+#container{
+    margin: 0 auto;
+}
+
+#header{
+    margin: 0 auto;
+}
+
+#main{
+    margin: 10px auto;
+}
+
+#maincenter{
+    width: 70%;
+    border: ridge thin;
+    border-radius: 25px;
+    margin: 0 10px;
+}
+
+#maincenter header h2 {
+    text-align: center;
+    font-family: fantasy, "Times New Roman";
+}
+
+#desktop {
+    text-align: center;
+    width: 100%;
+    margin: 10px;
+}
+
+#rightside{
+    width: 25%;
+    border: ridge thin;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 0 10px;
+    text-align: center;
+}
+
+#rightside ul{
+    padding: 10px;
+ }
+
+.logo{
+    max-width: 70%;
+    max-height: 70%;
+}
+
+#deskimage {
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 100%;
+}
