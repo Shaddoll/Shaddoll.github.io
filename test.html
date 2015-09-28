@@ -5,10 +5,13 @@
 		<title>abc</title>
     </head>
     <body>
-		<div style = "width 90%; margin: 0px auto">
-			<canvas id = "showwindow" height = "700" style = "width:100%;border: solid 2px #CCCCCC">
+		<div style = "width:80%; margin: 0px auto">
+			<canvas id = "showwindow" height = "500" style = "width:100%;border: solid 2px #CCCCCC">
 			</canvas>
 		</div>
+        <div style="width:80%; margin:auto">
+            A:放大，B:缩小，上下左右方向键控制视角移动
+        </div>
     </body>
 </html>
 
@@ -17,10 +20,10 @@
 var timedelay = 100;
 var length = 8;             //细胞边长20px
 var c_width = 700;            //画布宽高
-var c_height = 700;
+var c_height = 500;
 var c_offset_x = 0;           //相对于大地图的细胞位置数偏移
 var c_offset_y = 0;
-var mapsize = 200;
+var mapsize = 100;
 //map 数据
 var map = new Array();        //大地图
 for(var i = 0; i < mapsize; i++){
@@ -90,7 +93,7 @@ function nextgeneration(){
 	var i, j, k;
 	for (i = 0; i < mapsize; i++){
 		for (j = 0; j < mapsize; j++){
-			k = map[(i-1+mapsize)%mapsize][j%mapsize] + map[(i+1)%mapsize][j%mapsize] + map[i%mapsize][(j-1+mapsize)%mapsize] + map[i%mapsize][(j+1)%mapsize] + map[(i-1+mapsize)%mapsize][(j-1+mapsize)%mapsize] + map[(i-1+mapsize)%mapsize][(j+1)%mapsize] + map[(i+1)%mapsize][(j-1+mapsize)%mapsize] + map[(i+1)%mapsize][(j+1)%mapsize];
+			k = map[(i-1+mapsize)%mapsize][j] + map[(i+1)%mapsize][j] + map[i][(j-1+mapsize)%mapsize] + map[i][(j+1)%mapsize] + map[(i-1+mapsize)%mapsize][(j-1+mapsize)%mapsize] + map[(i-1+mapsize)%mapsize][(j+1)%mapsize] + map[(i+1)%mapsize][(j-1+mapsize)%mapsize] + map[(i+1)%mapsize][(j+1)%mapsize];
 			if (k == 3)
 				newmap[i][j] = 1;
 			else if (k == 2)
