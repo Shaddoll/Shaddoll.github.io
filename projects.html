@@ -1,48 +1,221 @@
 <!DOCTYPE html>
-<html>
-	<head>
-        <link rel="stylesheet" type="text/css" href="stylesheets/myblog.css">
-        <meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	  	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>El Shaddoll</title>
-	</head>
+<html lang="en">
 
-	<body>
-        <div id="container">
-		    <div id="header">
-                <nav>
-                    <ul>
-                        <li id="nav-header"><a href="index.html">El Shaddoll</a></li>
-                        <li><a href="blogs.html">Blogs</a></li>
-                        <li><a href="shares.html">Shares</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="about.html">About</a></li>
-                    </ul>
-                </nav>
-      	    </div>
-            <hr/>
-    	    <div id="main">
-    	    	 <div id="maincenter">
-                    <header>
-    			        <h2>Projects</h2>
-    	            </header>
-                </div>
-    
-                <div id="rightside">
-                    <h3>Gateway</h3>
-                    <hr/>
-                    <ul>
-                        <li><a href="http://github.com" target="_blank"><img class="logo" src="images/github.png"/></a></li>
-                        <li><a href="http://stackoverflow.com" target="_blank"><img class="logo" src="images/stackoverflow.png"/></a></li>
-                        <li><a href="http://sourceforge.net" target="_blank"><img class="logo" src="images/sourceforge.png"/></a></li>
-                        <li><a href="http://google.com" target="_blank"><img class="logo" src="images/google.png"/></a></li>
-                        <li><a href="http://en.wikipedia.com" target="_blank"><img class="logo" src="images/wiki.png"></a></li>
-                        <li><a href="http://codeforces.com" target="_blank"><img class="logo" src="images/codeforces.png"></a></li>
-                        <li><a href="http://twitter.com" target="_blank"><img class="logo" src="images/twitter.png"></a></li>
-                    </ul>
-   		        </div>
-    	    </div>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Zijian Chen</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="about.html">Zijian Chen</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="education.html">Education</a>
+                    </li>
+                    <li class="active">
+                        <a href="projects.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-	</body>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Projects
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Projects</li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-6">
+                <a href="portfolio-item.html">
+                    <img class="project-img img-responsive img-hover" src="images/partition.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>A Machine Learning Approach for Table Splitting</h3>
+                <h4>Haoci Zhang, Xianda Gao, Zijian Chen</h4>
+                <p>In this project, we explore a new method for table splitting and database normalization using functional dependencies and machine learning approaches. Our experiment results indicate that our method of database design creates databases that enable relatively efficient access and updates.</p>
+                <a class="btn btn-primary" href="https://github.com/Shaddoll/Table-Splitting">Code</i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Two -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="project-img img-responsive img-hover" src="images/subimage.png" alt="">
+            </div>
+            <div class="col-md-5">
+                <h3>Subimage Localization</h3>
+                <h4>Zijian Chen</h4>
+                <p>In this project, I implemented an FFT based subimage localization algorithm in Haskell (a functional programming language). The partial image may be polluted.</p>
+                <a class="btn btn-primary" href="https://github.com/Shaddoll/Subimage-Localization">Code</i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Three -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="project-img img-responsive img-hover" src="images/memory.png" alt="">
+            </div>
+            <div class="col-md-5">
+                <h3>Virtual Memory in Xv6</h3>
+                <h4>Zijian Chen</h4>
+                <p>In this project, I implemented virtual memory in MIT's Xv6 Operating System by modifying the system's kernel code. I allocated a swap area in the disk and designed a data structure to manage the swap area, and I also implemented the page fault handling function and a simple FIFO page replacement algorithm.</p>
+                <a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Four -->
+        <div class="row">
+
+            <div class="col-md-6">
+                <img class="project-img img-responsive img-hover" src="images/realtime.png" alt="">
+            </div>
+            <div class="col-md-5">
+                <h3>Real-time Environmental Sensing System</h3>
+                <h4>Zijian Chen, Haoci Zhang</h4>
+                <p>In this project, we developed a real-time environmental sensing system which could visualize environmental data on PCs in real-time. We used three sensors. One of them was used for receiving packets and forwarding packets to the computer through USB port, and the other two is used to collect data. The program controlling the sensors was written in NesC based and ran on TinyOS, and the program visualizing environmental data is written in Java.</p>
+                <a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Five -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="project-img img-responsive img-hover" src="images/ftp.jpg" alt="">
+            </div>
+            <div class="col-md-5">
+                <h3>FTP</h3>
+                <h4>Zijian Chen</h4>
+                <p>I implemented the FTP Protocol in C Programming Language.</p>
+                <a class="btn btn-primary" href="https://github.com/Shaddoll/FTPserver">Code</i></a>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Seven -->
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#">
+                    <img class="project-img img-responsive img-hover" src="images/ring.png" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>Heal of Ring - A Sports App on Wechat Platform</h3>
+                <h4>Zijian Chen, Zheng Wang, Yitian Zhang, Hengjie Chen, Ximeng Cao</h4>
+                <p>We built a wechat app which allows users to upload data about their sports and sleep collected by smart devices and visualize the data. We also added some functions that aimed to motivate users to do sports. We use MySQL to manage user data, Chart.js for data visualization and Django as our framework.</p>
+                <a class="btn btn-primary" href="https://github.com/Shaddoll/healofring">Code</i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Project Six -->
+        <div class="row">
+            <div class="col-md-6">
+                <img class="project-img img-responsive img-hover" src="images/game.png" alt="">
+            </div>
+            <div class="col-md-5">
+                <h3>Newton's Tank - A JavaScript Game</h3>
+                <h4>Zijian Chen, Haoci Zhang</h4>
+                <p>We designed a game in which users take turns shooting each other using three kinds of shells (normal, double damage, frozen). You should be careful about the wind. Move your tanks, adjust the angles and shoot each other. I think it's very interesting. :)</p>
+                <a class="btn btn-primary" href="http://shaddoll.github.io/NewtonTank/">Play</i></a>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Zijian Chen 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
